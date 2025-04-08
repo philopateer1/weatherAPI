@@ -28,8 +28,6 @@ async function getWeather(city) {
 }
 
 function displayWeather(data){
-    console.log(data);
-    
     const cities = data.location ? data.location.name : "Unknown City";
     const countryName = data.location ? data.location.country : "Unknown Country";
     const { temp_c: temperature, condition: { text: condition, icon: icon } } = data.current;
@@ -52,31 +50,43 @@ function displayWeather(data){
         weatherInfo.classList.remove("cloudy");
         weatherInfo.classList.remove("light-snow");
         weatherInfo.classList.remove("light-rain");
+        weatherInfo.classList.remove("other");
         weatherInfo.classList.add("sunny")
     }else if (condition.toUpperCase() == "PARTLY CLOUDY"){
         weatherInfo.classList.remove("sunny");
         weatherInfo.classList.remove("cloudy");
         weatherInfo.classList.remove("light-rain");
         weatherInfo.classList.remove("light-snow");
+        weatherInfo.classList.remove("other");
         weatherInfo.classList.add("partly-cloudy");
     }else if(condition.toUpperCase() == "LIGHT RAIN"){
         weatherInfo.classList.remove("sunny");
         weatherInfo.classList.remove("partly-cloudy");
         weatherInfo.classList.remove("light-snow");
         weatherInfo.classList.remove("cloudy");
+        weatherInfo.classList.remove("other");
         weatherInfo.classList.add("light-rain");
     }else if(condition.toUpperCase() == "CLOUDY"){
         weatherInfo.classList.remove("sunny");
         weatherInfo.classList.remove("partly-cloudy");
         weatherInfo.classList.remove("light-rain");
         weatherInfo.classList.remove("light-snow");
+        weatherInfo.classList.remove("other");
         weatherInfo.classList.add("cloudy");
     }else if(condition.toUpperCase() == "LIGHT SNOW"){
         weatherInfo.classList.remove("sunny");
         weatherInfo.classList.remove("partly-cloudy");
         weatherInfo.classList.remove("light-rain");
         weatherInfo.classList.remove("cloudy");
+        weatherInfo.classList.remove("other");
         weatherInfo.classList.add("light-snow");
+    }else{
+        weatherInfo.classList.remove("sunny");
+        weatherInfo.classList.remove("partly-cloudy");
+        weatherInfo.classList.remove("light-rain");
+        weatherInfo.classList.remove("cloudy");
+        weatherInfo.classList.remove("light-snow");
+        weatherInfo.classList.add("other");
     }
 }
 function displayError(){

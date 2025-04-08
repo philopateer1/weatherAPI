@@ -22,6 +22,11 @@
     background-image: linear-gradient(45deg, rgb(220, 229, 240),rgb(255, 255, 255), rgb(191, 204, 222));
 }
 
+.card .other{
+    background-image: linear-gradient(45deg, rgb(0, 84, 141),rgb(44, 4, 97));
+    color: aliceblue;
+}
+
 .card .error {
     background-color: rgb(146, 87, 87);
 }
